@@ -7,6 +7,7 @@ const { errors } = require('celebrate');
 
 const router = require('./routes/index');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const { cors } = require('./middlewares/cors');
 const { handleError } = require('./errors/err');
 const { limiter } = require('./middlewares/limiter');
 
@@ -21,6 +22,7 @@ app.use(helmet()); // заголовки безопасности - проста
 
 mongoose.connect('mongodb://localhost:27017/moviesdb'); // версия 6 => убрал объект опций
 
+app.use(cors);
 app.use(requestLogger); // логгер запросов - перед обработчиками роутов
 app.use(router);
 app.use(errorLogger); // логгер ошибок - после роутов и до обработчиков ошибок
