@@ -7,7 +7,7 @@ module.exports = (req, res, next) => {
   const { NODE_ENV, JWT_SECRET } = process.env; // env-переменные из process.env
   if (!req.cookies.token) {
     const err = new ForbiddenError('Необходима авторизация!');
-    next(err);
+    return next(err);
   }
   let payload;
   try {
@@ -16,9 +16,9 @@ module.exports = (req, res, next) => {
       NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret');
   } catch (e) {
     const err = new UnauthorizedError('Нет доступа!');
-    next(err);
+    return next(err);
   }
   // пейлоуд с данными пользователя (_id) в объект запроса
   req.user = payload;
-  next();
+  return next();
 };
