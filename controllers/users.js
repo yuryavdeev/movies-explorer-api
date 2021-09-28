@@ -13,7 +13,7 @@ module.exports.createUser = (req, res, next) => {
     }))
     .then((user) => res.send(user)) // или перечислить поля без password
     .catch((err) => {
-      if (err.code === 11000) {
+      if (err.name === 'MongoServerError' && err.code === 11000) {
         const error = new Error('Пользователь с таким e-mail уже существует!');
         error.statusCode = 409;
         next(error);
@@ -76,10 +76,10 @@ module.exports.getUser = (req, res, next) => {
 };
 
 module.exports.updateUser = (req, res, next) => {
-  const { email, name } = req.body;
+  const { name, email } = req.body;
   User.findByIdAndUpdate(
     req.user._id,
-    { email, name },
+    { name, email },
     {
       new: true,
       runValidators: true,
