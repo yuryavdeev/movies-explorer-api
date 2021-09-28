@@ -1,1 +1,21 @@
+<<<<<<< HEAD
 node_modules
+=======
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependency directory
+node_modules
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.DS_Store
+.idea
+.vscode
+
+.env
+>>>>>>> 376a28078bea9e66e953b0421b0b02fb3dc30680
