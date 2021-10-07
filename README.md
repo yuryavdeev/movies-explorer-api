@@ -1,6 +1,6 @@
 # API приложения movies-explorer-api    
 https://api.avdeev.movies.nomoredomains.monster    
-62.84.113.70
+62.84.119.3
 
 Данная работа - backend для приложения хранения фильмов, реализованная с помощью фреймворка Express.    
 
