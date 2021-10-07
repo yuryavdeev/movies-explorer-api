@@ -6,7 +6,7 @@ const ForbiddenError = require('../errors/forbidden');
 module.exports.createMovie = (req, res, next) => {
   const {
     country, director, duration, year, description, image,
-    trailer, thumbnail, movieId, nameRU, nameEN,
+    trailerLink, thumbnail, id, nameRU, nameEN,
   } = req.body;
 
   Movie.create({
@@ -16,9 +16,9 @@ module.exports.createMovie = (req, res, next) => {
     year,
     description,
     image,
-    trailer,
+    trailerLink,
     thumbnail,
-    movieId,
+    id,
     nameRU,
     nameEN,
     owner: req.user._id,
@@ -45,7 +45,7 @@ module.exports.getMyMovies = (req, res, next) => {
 };
 
 module.exports.deleteMovie = (req, res, next) => {
-  Movie.findById({ _id: req.params.movieId })
+  Movie.findById({ _id: req.params.id })
     .orFail(() => {
       throw new NotFoundError('Фильм для удаления не найден!');
     })

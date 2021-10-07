@@ -4,7 +4,7 @@ const { checkUrl } = require('../utils/utils');
 const validateUserBody = celebrate({
   body: Joi.object().keys({
     name: Joi.string().required().min(2).max(30)
-      .pattern(new RegExp('^[\\wа-яё\\.\\-\\+\\s]{2,30}$', 'i'))
+      .pattern(new RegExp('^[a-zа-яё\\-\\s]{2,30}$', 'i'))
       .message('Поле "name" невалидно'),
     email: Joi.string().required().email()
       .message('Поле "email" невалидно'),
@@ -25,7 +25,7 @@ const validateUserLogin = celebrate({
 const validateUserUpdate = celebrate({
   body: Joi.object().keys({
     name: Joi.string().required().min(2).max(30)
-      .pattern(new RegExp('^[\\wа-яё\\.\\-\\+\\s]{2,30}$', 'i'))
+      .pattern(new RegExp('^[a-zа-яё\\-\\s]{2,30}$', 'i'))
       .message('Поле "name" невалидно'),
     email: Joi.string().required().email()
       .message('Поле "email" невалидно'),
@@ -40,9 +40,9 @@ const validateMovieBody = celebrate({
     year: Joi.string().required(),
     description: Joi.string().required(),
     image: Joi.string().required().custom(checkUrl),
-    trailer: Joi.string().required().custom(checkUrl),
+    trailerLink: Joi.string().required().custom(checkUrl),
     thumbnail: Joi.string().required().custom(checkUrl),
-    movieId: Joi.number().required(),
+    id: Joi.number().required(),
     nameRU: Joi.string().required(),
     nameEN: Joi.string().required(),
   }),
@@ -50,7 +50,7 @@ const validateMovieBody = celebrate({
 
 const validateMovieDelete = celebrate({
   params: Joi.object().keys({
-    movieId: Joi.string().required().length(24).hex(),
+    id: Joi.string().required().length(24).hex(),
   }),
 });
 

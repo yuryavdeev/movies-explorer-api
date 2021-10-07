@@ -45,9 +45,9 @@ module.exports.login = (req, res, next) => {
           httpOnly: true, // исключили доступ из JS в браузере
           // sameSite: true, // отпр. кук - если запрос с этого-же домена
           sameSite: 'None',
-          // secure: true, // веб-сайт с поддержкой https - после деплоя
+          secure: true, // веб-сайт с поддержкой https - после деплоя
         })
-        .send({ message: 'Авторизация прошла успешно!' });
+        .send(user);
     })
     .catch(next);
 };
@@ -68,10 +68,7 @@ module.exports.getUser = (req, res, next) => {
     .orFail(() => {
       throw new NotFoundError('Пользователь не найден!');
     })
-    .then((user) => res.send({
-      name: user.name,
-      email: user.email,
-    }))
+    .then((user) => res.send(user))
     .catch(next);
 };
 
@@ -88,10 +85,7 @@ module.exports.updateUser = (req, res, next) => {
     .orFail(() => {
       throw new NotFoundError('Пользователь не найден!');
     })
-    .then((user) => res.send({
-      name: user.name,
-      email: user.email,
-    }))
+    .then((user) => res.send(user))
     .catch((err) => {
       if (err.code === 11000) {
         const error = new Error('Пользователь с таким e-mail уже существует!');
