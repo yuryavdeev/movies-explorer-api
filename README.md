@@ -21,7 +21,7 @@ https://api.avdeev.movies.nomoredomains.monster
 
 ## Технологии        
 - REST API
-- NodeJS    
+- Node.js    
 - Express     
 - MongoDB    
 - JWT    
