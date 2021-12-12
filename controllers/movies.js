@@ -1,6 +1,6 @@
 const Movie = require('../models/movie');
 const NotFoundError = require('../errors/not-found');
-const BadRequestError = require('../errors/bad-request');
+const BadRequestError = require('../errors/bad-request').default;
 const ForbiddenError = require('../errors/forbidden');
 
 module.exports.createMovie = (req, res, next) => {

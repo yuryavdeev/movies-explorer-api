@@ -1,5 +1,5 @@
 const validator = require('validator');
-const BadRequestError = require('../errors/bad-request');
+const BadRequestError = require('../errors/bad-request').default;
 
 const checkUrl = (value) => {
   const result = validator.isURL(value);
