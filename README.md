@@ -1,34 +1,37 @@
 # API приложения movies-explorer-api    
-https://api.avdeev.movies.nomoredomains.monster    
-62.84.119.3
+This work is a backend for a movie storage application implemented using the Express framework.    
 
-Данная работа - backend для приложения хранения фильмов, реализованная с помощью фреймворка Express.    
-
-## Функциональность    
-- валидация поступающих запросов,    
-- проверка JWT,    
-- роутинг, в том числе с помощью динамических роутов, и обработка поступающих запросов, 
-- централизованная обработка ошибок (errors/err.js).
+## Functionality    
+- validation of incoming requests,    
+- JWT validation,    
+- routing, including using dynamic routes, and processing incoming requests,    
+- centralized error handling (errors/err.js).    
       
-## Особенности        
-- в app.js реализован express-сервер, его запуск обеспечивается на 3000 порту по команде "npm start",    
-- приложение подключено к серверу MongoDB,    
-- реализован hot reload с помощью пакета nodemon при запуске приложения по команде "npm run dev",    
-- cозданы схема и модель для пользователя (user) и фильма (movie),    
-- запросы валидируются на уровне схем, а также при переходе на роуты - с помощью Joi и библиотеки celebrate,     
-- все маршруты, кроме страницы регистрации и логина, защищены авторизацией (middlewares/auth.js) через проверку наличия и соотвествия JWT-cookies в запросе,    
-- JWT при авторизации сохраняется в cookies (httpOnly = true).
+## Peculiarities        
+- app.js implements an express server, it is launched on port 3000 by the "npm start" command, but now server cannot be started due to lack of hosting,    
+- the application is connected to the MongoDB server,    
+- implemented hot reload using the nodemon package when running the application with the "npm run dev" command,    
+- the scheme and model for the user and the movie are created,    
+- requests are validated at the schema level, as well as when switching to routes - using Joi and the celebrate library,    
+- all routes, except for the registration page and login page, are protected by authorization (middlewares/auth.js) with checking the presence and matching of JWT cookies in the request,    
+- JWT is stored in cookies during authorization (httpOnly = true)    
 
 ## Технологии        
-- REST API
+- REST API    
 - Node.js    
-- Express     
+- Express    
 - MongoDB    
 - JWT    
 
-## Запуск приложения        
-Для запуска приложения необходимо выполнить следующую последовательность действий:    
-1. Локально установить приложение (git clone),    
-2. Обновить установленные пакеты (npm install),    
-3. Запустить сервер (npm run dev _или_ npm start)      
-После чего проверку работоспособности сервера можно осуществить с помощью инструментов тестирования API - Postman либо аналогов. 
+## Application launch        
+To launch the application, you have to perform the following sequence of actions:    
+1. Install the application locally (git clone),    
+2. Update installed packages (npm install),    
+3. Start the server (npm run dev)      
+After that, the server can be checked using the API testing tools - Postman or analogues. 
+
+
+
+
+
+
