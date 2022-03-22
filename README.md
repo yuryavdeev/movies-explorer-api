@@ -1,4 +1,4 @@
-# API приложения movies-explorer-api    
+# Server side of the application movies-explorer-api    
 This work is a backend for a movie storage application implemented using the Express framework.    
 
 ## Functionality    
